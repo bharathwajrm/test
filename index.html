@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soil Benefits and Plants</title>
+    <style>
+        /* CSS for container */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom right, #ff4d4d, #3399ff);
+            margin: 0;
+            padding: 20px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* CSS for buttons */
+        .button-container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background: linear-gradient(to right, #ff4d4d, #3399ff);
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+        .button:hover {
+            opacity: 0.8;
+        }
+        #result-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        #result {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+        }
+        img {
+            margin-top: 20px;
+            max-width: 200px;
+            max-height: 200px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="button-container">
+        <h1>Choose Soil Type</h1>
+        <button class="button" onclick="showBenefits('Black Soil')">Black Soil</button>
+        <button class="button" onclick="showBenefits('Red Soil')">Red Soil</button>
+        <button class="button" onclick="showBenefits('Sandy Soil')">Sandy Soil</button>
+        <button class="button" onclick="showBenefits('Clay Soil')">Clay Soil</button>
+        <button class="button" onclick="showBenefits('Loamy Soil')">Loamy Soil</button>
+        <div id="result-container">
+            <div id="result"></div>
+        </div>
+    </div>
+
+    <script>
+        function showBenefits(soilType) {
+            var resultDiv = document.getElementById('result');
+            var benefits = '';
+            var plants = '';
+            var imageSrc = '';
+
+            switch (soilType) {
+                case 'Black Soil':
+                    benefits = 'Black soil is rich in nutrients and retains moisture well.';
+                    plants = 'Plants like cotton, wheat, and vegetables thrive in black soil.';
+                    imageSrc = 'https://www.thespruce.com/thmb/jPX-gmz40d_Qe21GZUC_Y3U4Kg8=/3000x2000/filters:fill(auto,1)/clay-soil-473442515-57c4873a5f9b5855e5d193b4.jpg';
+                    break;
+                case 'Red Soil':
+                    benefits = 'Red soil is well-drained and suitable for crops like groundnut, millets, and pulses.';
+                    plants = 'Crops like groundnut, millets, and pulses are suitable for red soil.';
+                    imageSrc = 'https://www.gardeningknowhow.com/wp-content/uploads/2019/03/red-soil.jpg';
+                    break;
+                case 'Sandy Soil':
+                    benefits = 'Sandy soil is light and drains well, suitable for crops like carrots, potatoes, and strawberries.';
+                    plants = 'Crops like carrots, potatoes, and strawberries grow well in sandy soil.';
+                    imageSrc = 'https://www.naturesseed.com/wp/wp-content/uploads/2018/07/sandy-soil.jpg';
+                    break;
+                case 'Clay Soil':
+                    benefits = 'Clay soil is rich in nutrients but can become waterlogged. It is suitable for rice, wheat, and barley.';
+                    plants = 'Crops like rice, wheat, and barley are suitable for clay soil.';
+                    imageSrc = 'https://www.nature-and-garden.com/wp-content/uploads/sites/4/2019/09/clay-soil-123rf-6950418.jpg';
+                    break;
+                case 'Loamy Soil':
+                    benefits = 'Loamy soil is a mixture of sand, silt, and clay, making it suitable for a wide range of crops.';
+                    plants = 'A variety of crops like maize, beans, and tomatoes grow well in loamy soil.';
+                    imageSrc = 'https://www.gardeningknowhow.com/wp-content/uploads/2018/04/loamy-soil.jpg';
+                    break;
+                default:
+                    benefits = 'Unknown soil type!';
+                    plants = 'Unknown plants!';
+            }
+
+            resultDiv.innerHTML = `
+                <div id="result">
+                    <p>${benefits}</p>
+                    <p>${plants}</p>
+                    <img src="${imageSrc}" alt="${soilType}">
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
